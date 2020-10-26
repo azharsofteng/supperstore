@@ -1,5 +1,5 @@
 <template>
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-2">
         <thead>
             <tr>
                 <th>Name</th>
@@ -13,11 +13,13 @@
                 <td>${{ item.price }}</td>
                 <td><button @click="removeItem(index)" class="btn btn-danger btn-sm px-3">X</button></td>
             </tr>
+        </tbody>
+        <tfoot>
             <tr>
                 <th>Total</th>
                 <td colspan="2" class="text-center">${{ totalPrice }}</td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
 </template>
 
@@ -33,7 +35,8 @@ export default {
             })
             return total
         }
-    },methods:{
+    },
+    methods:{
         removeItem(index){
             this.$emit('itemRemove', index)
         }
